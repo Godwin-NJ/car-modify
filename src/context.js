@@ -13,10 +13,14 @@ const initialState = {
     image:'https://freepngimg.com/thumb/car/6-2-car-png-file.png'
 }
 
+
 const AppProvider = ({children}) => {
     const[state,dispatch] = useReducer(reducer, initialState)
+    // console.log(state.car)
     return(
-        <AppContext.Provider value={{}}>
+        <AppContext.Provider value={{
+            ...state
+        }}>
             {children}
         </AppContext.Provider>
     )
