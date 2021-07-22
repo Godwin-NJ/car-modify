@@ -5,7 +5,8 @@ import {useGlobalContext} from '../context'
 import Features from './Features'
 
 const Car = () => {
-    const {car,image} = useGlobalContext()
+    const {car,image,price, extraFeature,features,id} = useGlobalContext()
+    console.log(features)
     // console.log(car.length)
     return(
         <div>
@@ -13,9 +14,27 @@ const Car = () => {
         <section className="carPage">
             <img src={ image} alt="car" className="motor"/>
             <p>2019 Benz</p>
-            <p>$9000</p>
+            <p>${price}</p>
             <h4>Added Features</h4>
-            <p>You can purchase items from the stores</p>
+                {
+                    features.length ? (
+                        <ol type="1">
+                            {
+                            features.map((item) => {
+                                // console.log(item,3)
+                                return(
+                                    <li key={item.id}>
+                                    <button onClick={() => extraFeature(id)}>X</button>
+                                    {item.path}
+                                    </li>
+                                )
+                            })
+                            }
+                        </ol>
+                    ):
+                 <p>You can purchase items from the stores</p>
+                }
+          
         </section>
             {/* features section  */}
         <section className="addFeatures">
@@ -27,7 +46,7 @@ const Car = () => {
                 </div>
             )
             })}
-            <h4>Total Amount $9000</h4>
+            <h4>Total Amount ${price}</h4>
         </section>
         </div>
     )

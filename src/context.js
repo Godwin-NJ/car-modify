@@ -3,28 +3,41 @@ import reducer from './reducer'
 import carFeatures from './data'
 
 const AppContext = React.createContext()
+
 // let num = 42
 
 const initialState = {
     loading: false,
-    amount:0,
-    total:0,
-    car: carFeatures,
-    image:'https://freepngimg.com/thumb/car/6-2-car-png-file.png'
+    amount:0,       
+    price:5300,     
+    car: carFeatures,   
+    image:'https://freepngimg.com/thumb/car/6-2-car-png-file.png',
+    features: []
 }
 
 
 const AppProvider = ({children}) => {
     const[state,dispatch] = useReducer(reducer, initialState)
-    // console.log(state.car)
+    
+    
+    const addFeature = (id) => {
+        dispatch({type:'ADD',payload: id})
+    }
+
+    const extraFeature = (id) => {
+        dispatch({type:'CAR_EXTRA',payload: id})
+    }
+
     return(
         <AppContext.Provider value={{
-            ...state
+            ...state,
+            addFeature,
+            extraFeature
         }}>
             {children}
         </AppContext.Provider>
-    )
-}
+    )   
+}       
 
 // make sure use
 export const useGlobalContext = () => {
