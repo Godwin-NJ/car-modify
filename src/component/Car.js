@@ -5,7 +5,7 @@ import {useGlobalContext} from '../context'
 import Features from './Features'
 
 const Car = () => {
-    const {car,image,price, extraFeature,features,id} = useGlobalContext()
+    const {car,image,price, extraFeature,features} = useGlobalContext()
     console.log(features)
     // console.log(car.length)
     return(
@@ -21,10 +21,10 @@ const Car = () => {
                         <ol type="1">
                             {
                             features.map((item) => {
-                                // console.log(item,3)
+                                console.log(item,3)
                                 return(
                                     <li key={item.id}>
-                                    <button onClick={() => extraFeature(id)}>X</button>
+                                    <button onClick={() => extraFeature(item)}>X</button>
                                     {item.path}
                                     </li>
                                 )

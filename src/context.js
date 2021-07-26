@@ -20,8 +20,8 @@ const AppProvider = ({children}) => {
     const[state,dispatch] = useReducer(reducer, initialState)
     
     
-    const addFeature = (id) => {
-        dispatch({type:'ADD',payload: id})
+    const addFeature = (data) => {
+        dispatch({type:'ADD',payload: data})
     }
 
     const extraFeature = (id) => {

@@ -31,10 +31,10 @@ body{
   flex-direction: row;
   padding: 20px;
 }
-.carParts p{
-  /* padding-left: 7px; */
+/* .carParts p{
+  padding-left: 7px;
 
-}
+} */
 .carParts button{
   padding: 0.25em 0.75em;
   transition: all 0.25s ease-in;
